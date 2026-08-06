@@ -1,0 +1,91 @@
+:root {
+    color-scheme: light dark;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    width: 290px;
+    margin: 0;
+    background: Canvas;
+    color: CanvasText;
+}
+
+.status-card {
+    padding: 14px 16px;
+}
+
+.steps {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+}
+
+.step-icon {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    box-sizing: border-box;
+    color: color-mix(in srgb, CanvasText 55%, transparent);
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+}
+
+.step-icon::before {
+    content: "○";
+}
+
+.step[data-state="pending"] {
+    color: color-mix(in srgb, CanvasText 38%, transparent);
+}
+
+.step[data-state="active"] .step-icon::before {
+    content: "";
+}
+
+.step[data-state="active"] .step-icon {
+    border: 2px solid color-mix(in srgb, CanvasText 20%, transparent);
+    border-top-color: #1a73e8;
+    border-radius: 50%;
+    animation: spin 800ms linear infinite;
+}
+
+.step[data-state="complete"] .step-icon::before {
+    content: "✓";
+    color: #188038;
+    font-weight: 700;
+}
+
+.step[data-state="error"] .step-icon::before {
+    content: "!";
+    color: #d93025;
+    font-weight: 700;
+}
+
+.error {
+    margin: 12px 0 0;
+    color: #d93025;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .step[data-state="active"] .step-icon {
+        animation: none;
+    }
+}

@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "name": "Clear Data for Current Site",
     "version": "2.0.0",
+    "minimum_chrome_version": "96",
     "description": "Clears browser data for the current site only.",
     "author": "Nicolas Barraud",
 
@@ -19,8 +20,8 @@
         {
             "suggested_key":
             {
-                "default": "Ctrl+R",
-                "mac": "Command+R"
+                "default": "Ctrl+Shift+Y",
+                "mac": "Command+Shift+Y"
             }
         }
     },
